@@ -40,7 +40,7 @@ int main(){
     for(int i = 0; i < 9; i++){
         cin >> field;
         if (cin.fail()) { // if input isn't a number
-            cout << "\033[13;1H" << "That's not a valid move! Try again.";
+            cout << "\033[13;1H\033[0J" << "That's not a valid move! Try again.";
             cout << "\033[12;62H\033[K" << flush;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -48,7 +48,7 @@ int main(){
             continue;
         }
         if(field > 9 || field < 0 || table[field-1] != field+10){ // if input is out of bounds or already used
-            cout << "\033[13;1H" << "That's not a valid move! Try again.";
+            cout << "\033[13;1H\033[0J" << "That's not a valid move! Try again.";
             cout << "\033[12;62H\033[K" << flush;
             i--;
             continue;
